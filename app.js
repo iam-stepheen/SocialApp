@@ -16,7 +16,7 @@ mongoose.connection.on('connected',()=>{
 
 app.use(bodyParser.json())
 //configuring routes 
-app.get('*',(req,res)=>{
+app.get('/',(req,res)=>{
     res.send("Website is under development")
 })
 app.use('/api',routes)

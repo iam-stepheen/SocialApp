@@ -25,6 +25,14 @@ const user_details = mongoose.Schema({
         type:Array,
         required:true,
     },
+    profilepicture:{
+        type:String,
+        required:false
+    },
+    coverpicture:{
+        type:String,
+        required:false
+    }
 })
 
 const insert = module.exports= mongoose.model('Users',user_details)
@@ -56,4 +64,14 @@ module.exports.compare_password= function(password,hash,callback){
        if(err) throw err
        callback(null,res)
     });
+}
+
+//function to upload profile picture 
+module.exports.profile_picture = function(id,picturename,callback){
+    insert.findByIdAndUpdate(id,{$set:{profilepicture:picturename}},(err,succesfull)=>{
+        if(err) throw err
+        if(succesfull){
+            callback(null,succesfull)
+        }
+    })
 }
