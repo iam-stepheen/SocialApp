@@ -3,6 +3,7 @@
 const express = require('express')
 const http = require('http')
 const app = express()
+const bodyParser = require('body-parser')
 const port = 3000;
 const routes = require('./routes/api')
 const mongoose = require('mongoose')
@@ -12,6 +13,8 @@ mongoose.connect(database.url)
 mongoose.connection.on('connected',()=>{
     console.log("Database successfully connected at "+database.url)
 })
+
+app.use(bodyParser.json())
 //configuring routes 
 app.get('*',(req,res)=>{
     res.send("Website is under development")
