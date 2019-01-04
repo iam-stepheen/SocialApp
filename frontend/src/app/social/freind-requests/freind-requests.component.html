@@ -1,0 +1,166 @@
+<div class="row flex-row">
+    
+        <div class="col-xl-3 col-md-4 col-sm-6 col-remove">
+    
+            <div class="widget-image has-shadow">
+            <div class="contact-card-2">
+            <div class="cover-bg">
+            <img src="assets/img/cover/01.jpg" class="img-fluid" alt="...">
+            </div>
+            
+          
+            </div>
+            </div>
+            
+            </div>
+    <div *ngFor = "let items of userinfo"class="col-xl-3 col-md-4 col-sm-6 col-remove">
+    
+    <div class="widget-image has-shadow">
+    <div class="contact-card-2">
+    <div class="cover-bg">
+    <img src="assets/img/cover/01.jpg" class="img-fluid" alt="...">
+    </div>
+    
+    <div class="widget-body">
+    <div class="quick-actions hover">
+    <div class="dropdown">
+    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+    <i class="la la-ellipsis-h"></i>
+    </button>
+    <div class="dropdown-menu">
+    <a href="#" class="dropdown-item remove">
+    <i class="la la-trash"></i>Delete
+    </a>
+    <a href="#" class="dropdown-item">
+    <i class="la la-edit"></i>Edit
+    </a>
+    </div>
+    </div>
+    </div>
+    <div class="cover-image mx-auto">
+    <img src="http://localhost:8080/api/image/{{items.profilepicture}}" height="100" width="150" alt="..." class="rounded-circle mx-auto">
+    </div>
+    <h4 class="name"><a href="#">{{items.firstname}} {{items.secondname}}</a></h4>
+    <div class="job">{{items.occupation}}</div>
+    <div class="social-friends owl-carousel mb-3">
+    <div class="item">
+    <div class="stats">
+    <div class="row d-flex justify-content-between">
+    <div class="col">
+    <span class="counter">264</span>
+    <span class="text">Friends</span>
+    </div>
+    <div class="col">
+    <span class="counter">52</span>
+    <span class="text">Photos</span>
+    </div>
+    <div class="col">
+    <span class="counter">997</span>
+    <span class="text">Videos</span>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="item">
+    <div class="quick-about">
+    <div class="row d-flex align-items-center">
+    <div class="col-12">
+    <h4>About</h4>
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac orci in magna condimentum convallis.
+    </p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="text-center pt-5 pb-3">
+    <a  (click) = profile(items.email) data-toggle="modal" data-target="#modal-centered" class="btn btn-gradient-01">View Profile</a>
+    <a (click) ="accept(items.email)" class="btn btn-shadow">Accept Request</a>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+    
+    </div>
+    
+    
+    <div class="col d-flex align-items-center">
+    <div class="mr-auto p-2">
+    <span class="display-items">Showing 1-15 / 257 Contacts</span>
+    </div>
+    <div class="p-2">
+    <nav aria-label="...">
+    <ul class="pagination">
+    <li class="page-item">
+    <span class="page-link"><i class="ion-chevron-left"></i></span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active">
+    <span class="page-link">2<span class="sr-only">(current)</span></span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+    <a class="page-link" href="#"><i class="ion-chevron-right"></i></a>
+    </li>
+    </ul>
+    </nav>
+    </div>
+    </div>
+    </div>
+
+    <div id="modal-centered" class="modal fade">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title"></h4>
+                <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">close</span>
+                </button>
+                </div>
+                <div *ngFor = "let items of pinfo" class="modal-body">
+                        <div class="widget has-shadow">
+                                <div class="widget-body">
+                                <div class="mt-5">
+                                <img src="http://localhost:8080/api/image/{{items.profilepicture}}" height="130" width="150" alt="..." style="width: 120px;" class="avatar rounded-circle d-block mx-auto">
+                                </div>
+                                <h3 class="text-center mt-3 mb-1">{{items.firstname}} {{items.secondname}}</h3>
+                                <p class="text-center">{{items.email}}</p>
+                                <div class="em-separator separator-dashed"></div>
+                                <div class="form-group row d-flex align-items-center mb-5">
+                                        <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Name</label>
+                                        <div class="col-lg-6">
+                                        <input type="text" class="form-control" placeholder="{{items.firstname}} {{items.secondname}}"readonly>
+                                        </div>
+                                        </div>
+                                        <div class="form-group row d-flex align-items-center mb-5">
+                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Email</label>
+                                                <div class="col-lg-6">
+                                                <input type="text" class="form-control" placeholder="{{items.email}}" readonly>
+                                                </div>
+                                                </div>
+                                                <div class="form-group row d-flex align-items-center mb-5">
+                                                        <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Phone</label>
+                                                        <div class="col-lg-6">
+                                                        <input type="text" class="form-control" placeholder="{{items.phone}}">
+                                                        </div>
+                                                        </div>
+                                                        <div class="form-group row d-flex align-items-center mb-5">
+                                                                <label class="col-lg-2 form-control-label d-flex justify-content-lg-end">Website</label>
+                                                                <div class="col-lg-6">
+                                                                <input type="text" class="form-control" placeholder="{{items.website}}">
+                                                                </div>
+                                                                </div>
+                                </div>
+                                </div>
+                        
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-shadow" data-dismiss="modal">Close</button>
+                
+                </div>
+                </div>
+                </div>
+                </div>

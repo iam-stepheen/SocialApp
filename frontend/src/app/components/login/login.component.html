@@ -42,31 +42,21 @@
   <h3>Sign In To Swift-wallet</h3>
   <form>
   <div class="group material-input">
-  <input type="text" required>
+  <input type="text" required [(ngModel)]="email" name="email">
   <span class="highlight"></span>
   <span class="bar"></span>
   <label>Email</label>
   </div>
   <div class="group material-input">
-  <input type="password" required>
+  <input type="password" required [(ngModel)]="password" name="password">
   <span class="highlight"></span>
   <span class="bar"></span>
   <label>Password</label>
   </div>
   </form>
-  <div class="row">
-  <div class="col text-left">
-  <div class="styled-checkbox">
-  <input type="checkbox" name="checkbox" id="remeber">
-  <label for="remeber">Remember me</label>
-  </div>
-  </div>
-  <div class="col text-right">
-  <a href="pages-forgot-password.html">Forgot Password ?</a>
-  </div>
-  </div>
+ 
   <div class="sign-btn text-center">
-  <a [routerLink] = "['/sidebar']" class="btn btn-lg btn-gradient-01">
+  <a (click)=login() class="btn btn-lg btn-gradient-01">
   Sign In
   </a>
   </div>
@@ -76,35 +66,46 @@
   <div role="tabpanel" class="tab-pane" id="signup" aria-labelledby="signup-tab">
   <h3>Create An Account</h3>
   <form>
+      <div class="group material-input">
+          <input type="text" required [(ngModel)]="firstname" name="firstname"> 
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>FirstName</label>
+          </div> <div class="group material-input">
+              <input type="text" required  [(ngModel)]="secondname" name="secondname"> 
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>SecondName</label>
+              </div>
   <div class="group material-input">
-  <input type="text" required>
+  <input type="text" required [(ngModel)]="email" name="email">
   <span class="highlight"></span>
   <span class="bar"></span>
   <label>Email</label>
   </div>
   <div class="group material-input">
-  <input type="password" required>
+  <select name="account" class="custom-select form-control" [(ngModel)]="gender" name="gender">
+      <option>Male</option>
+      <option>Female</option>
+      </select>
+      
+  </div>
+  <div class="group material-input">
+  <input type="password" required [(ngModel)]="password" name="password">
   <span class="highlight"></span>
   <span class="bar"></span>
   <label>Password</label>
   </div>
   <div class="group material-input">
-  <input type="password" required>
+  <input type="password" required [(ngModel)]="cpassword" name="cpassword">
   <span class="highlight"></span>
   <span class="bar"></span>
   <label>Confirm Password</label>
   </div>
   </form>
-  <div class="row">
-  <div class="col text-left">
-  <div class="styled-checkbox">
-  <input type="checkbox" name="checkbox" id="agree">
-  <label for="agree">I Accept <a href="#">Terms and Conditions</a></label>
-  </div>
-  </div>
-  </div>
+  
   <div class="sign-btn text-center">
-  <a href="db-default.html" class="btn btn-lg btn-gradient-01">
+  <a  class="btn btn-lg btn-gradient-01" (click)=register()>
   Sign Up
   </a>
   </div>
